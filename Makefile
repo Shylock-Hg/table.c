@@ -3,7 +3,7 @@ LN = ln
 AR = ar
 INSTALL = install
 
-CFLAGS_LOCAL = 
+CFLAGS_LOCAL = -g
 CFLAGS_LOCAL += $(CFLAGS)
 
 INCLUDES =

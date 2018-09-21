@@ -22,18 +22,6 @@ int main(int argc, char * argv[]){
 
 	//!<  usage by dynamic alloc
 	table_t * table = table_new(3, 3, 2, (char**)t);
-	/*
-	*(table->table+0) = "name";
-	*(table->table+1) = "gender";
-	*(table->table+2) = "age";
-	*(table->table+3) = "shylock-hg";
-	*(table->table+4) = "male";
-	*(table->table+5) = "23";
-	*(table->table+6) = "alic";
-	*(table->table+7) = "female";
-	*(table->table+8) = "19";
-	*/
-
 
 	table_print(table);
 

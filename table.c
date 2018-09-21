@@ -14,7 +14,7 @@ typedef struct length_array {
 } length_array_t;
 
 
-table_t * table_new(size_t raw, size_t column, size_t space){
+table_t * table_new(size_t raw, size_t column, size_t space, char ** strs){
 	assert(raw);
 	assert(column);
 
@@ -23,6 +23,7 @@ table_t * table_new(size_t raw, size_t column, size_t space){
 
 	table->table = calloc(sizeof(char*), raw*column);
 	assert(table->table);
+	memcpy(table->table, strs, raw*column*sizeof(char*));
 
 	table->raw = raw;
 	table->column = column;

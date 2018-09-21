@@ -20,11 +20,22 @@ typedef struct table {
 	size_t space;
 } table_t;
 
+/*! \brief create a table by dynamic alloc
+ *  \param raw count of raw number
+ *  \param column count of column number
+ *  \param space count of space between two column
+ *  \retval table instance
+ * */
+table_t * table_new(size_t raw, size_t column, size_t space, char ** strs);
 
-table_t * table_new(size_t raw, size_t column, size_t space);
-
+/*! \brief release a instance of table_t
+ *  \param table instance of table_t to release
+ * */
 void table_release(table_t * table);
 
+/*! \brief print a table 
+ *  \param table instance of table to print
+ * */
 void table_print(table_t * table);
 
 

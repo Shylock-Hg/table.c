@@ -154,10 +154,11 @@ before_install:
     - eval "${MATRIX_EVAL}"
 
 script:
-    - make -j8 && sudo make install
+    - make -j8
+    - sudo make install
     - sudo ldconfig
     - make test
-    - make uninstall
+    - sudo make uninstall
     - make clean
 
 after_success:

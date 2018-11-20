@@ -73,7 +73,7 @@ uninstall :
 	rm -f "${DESTDIR}${prefix}/bin/$(TARGET)"
 
 test :
-	table_test
+	$(TARGET)
 
 clean : 
 	rm -rf $(DIR_BUILD)

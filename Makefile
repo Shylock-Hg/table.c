@@ -16,7 +16,7 @@ PPFLAGS = -MT $@ -MMD -MP -MF $(DIR_BUILD)/$*.d $(INCLUDES)
 
 LIB_SOURCES = table.c
 
-APP_SOURCE = test.c
+APP_SOURCE = sample.c
 
 LIB_OBJECTS = $(addprefix $(DIR_BUILD)/, $(patsubst %.c, %.o, $(notdir $(LIB_SOURCES))))
 
@@ -38,7 +38,7 @@ vpath %.c $(sort $(dir $(LIB_SOURCES)))
 # set c headers search path
 #vpath %.h $(sort $(dir $(INCLUDES)))
 
-.PHONY : all clean install
+.PHONY : all clean install uninstall test
 all : $(DIR_BUILD)/$(TARGET)
 
 $(DIR_BUILD)/$(TARGET) : $(OBJECTS) $(DIR_BUILD)/$(LIB_SO_TABLE) Makefile
@@ -71,6 +71,9 @@ uninstall :
 	rm -f "${DESTDIR}${prefix}/lib/$(LIB_SO_TABLE)"
 	rm -f "${DESTDIR}${prefix}/lib/lib${LIBNAME}.so"
 	rm -f "${DESTDIR}${prefix}/bin/$(TARGET)"
+
+test :
+	$(TARGET)
 
 clean : 
 	rm -rf $(DIR_BUILD)

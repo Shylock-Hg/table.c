@@ -156,7 +156,7 @@ before_install:
 script:
     - make -j8 && sudo make install
     - sudo ldconfig
-    - table_test
+    - make test
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)

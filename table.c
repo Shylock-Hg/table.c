@@ -83,8 +83,15 @@ length_array_t * table_column_width(table_t * table){
 	assert(lr);
 	for(size_t i=0; i<table->column; i++){
 		for(size_t j=0; j<table->raw; j++){
-			if(lr->value[i] < strlen(*(table->table+(j*table->raw)+i))){
-				lr->value[i] = strlen(*(table->table+(j*table->raw)+i));
+                        size_t len_str = strnlen(
+                                *(table->table+(j*table->raw)+i),
+                                MAX_STR_BUF_LEN);
+                        if (len_str >= MAX_STR_BUF_LEN) {
+                                length_array_release(lr);
+                                return NULL;
+                        }
+			if(lr->value[i] < len_str){
+				lr->value[i] = len_str;
 			}
 		}
 	}

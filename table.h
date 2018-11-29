@@ -13,6 +13,8 @@
 
 #include <stddef.h>
 
+#define MAX_STR_BUF_LEN 1024
+
 typedef struct table {
 	char ** table;  //!< table[raw][column]
 	size_t raw;

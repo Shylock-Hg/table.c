@@ -3,7 +3,7 @@ LN = ln
 AR = ar
 INSTALL = install
 
-CFLAGS_LOCAL = -g -coverage -std=c99
+CFLAGS_LOCAL = -g -coverage -std=c99 -D_POSIX_C_SOURCE=200809L
 CFLAGS_LOCAL += $(CFLAGS)
 
 INCLUDES =
